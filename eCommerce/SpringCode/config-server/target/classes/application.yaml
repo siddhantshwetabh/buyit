@@ -1,0 +1,23 @@
+server:
+  port: 8887
+
+spring:
+  profiles:
+    active: native  ## 'native' for local properties and 'git' for remote
+
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+
+---
+spring:
+  profiles: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://innersource.accenture.com/projects/FSMYIN/repos/assignment/ecommerce.git
+          cloneOnStart: true
+          search-paths: 'Spring Code/config-store/{application}'
+          username:
+          password: 

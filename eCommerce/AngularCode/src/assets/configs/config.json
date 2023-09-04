@@ -1,0 +1,8 @@
+{
+    "url": "http://localhost:8890/",
+    "userURL":"http://localhost:9999/",
+    "cartURL":"http://localhost:8989/",
+    "orderURL":"http://localhost:8087/",
+    "paymentURL":"http://localhost:8881/"
+  }
+  

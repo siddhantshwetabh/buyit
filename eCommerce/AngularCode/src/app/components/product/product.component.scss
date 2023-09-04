@@ -1,0 +1,80 @@
+.product-main {
+    min-height: 88%;
+    // background-color: rgb(220, 249, 225);
+    background-color: rgb(244 255 246);
+
+    .product-name {
+        font-size: 35px;
+        padding: 20px 20px 20px 0px;
+    }
+
+    .product-mrp {
+        font-size: 20px;
+        text-decoration: line-through;
+    }
+
+    .product-price {
+        font-size: 30px;
+    }
+
+    .remaining-products {
+        font-size: 16px;
+        color: rgb(2, 118, 2);
+        padding: 10px 0px;
+    }
+
+    .product-description {
+        font-size: 20px;
+        padding: 10px 10px 10px 0px;
+    }
+
+    .product-img {
+        width: 500px;
+    }
+
+    .img-container {
+        padding: 10px;
+        border: 1px solid lightgrey;
+        border-radius: 8px;
+        background-color: white;
+        width: 550px;
+        margin: 50px;
+    }
+
+    .add-to-cart {
+        padding: 10px 10px 10px 25px;
+        background-color: rgb(212, 228, 69);
+        border-radius: 10px;
+        color: white;
+        border: none;
+        margin-left: auto;
+        margin-right: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        cursor: pointer;
+        color: black;
+
+        .cart-icon {
+            width: 30px;
+            padding: 0px 10px 0px 15px;
+        }
+    }
+
+    .add-to-cart:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .rating-box {
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        background-color: rgb(10, 62, 10);
+        padding: 5px 11px 5px 7px;
+        font-size: 21px;
+        width: -moz-fit-content;
+        width: fit-content;
+        color: white;
+    }
+}

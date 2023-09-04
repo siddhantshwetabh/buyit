@@ -1,0 +1,31 @@
+<div>
+<div class="side-bar">
+        <!-- <div class="category"> Filter </div>
+        <div class="category"> Sort </div> -->
+        <mat-form-field appearance="outline" class="search-field">
+            <input matInput placeholder="Search Item" [(ngModel)]="search">
+        </mat-form-field>
+        <div class="category" *ngIf="categories" (click)="getAllProducts()"> All Categories </div>
+        <div class="category" *ngFor="let category of categories" (click)="categoryClicked(category.categoryId)">
+            {{category?.categoryType}}
+        </div>
+    </div>
+    <div class="home-main">
+        <div class="cards-container">
+            <div class="gird-view">
+                <ng-container *ngFor="let product of allProducts">
+                    <div *ngIf="shouldDisplayProduct(product?.productName)" class="one-card"
+                        (click)="productClicked(product)">
+                        <div class="img-container">
+                            <!-- <img class="product-img" src="../../../assets/images/mobile-img.png" alt="" /> -->
+                            <img class="product-img" src="data:image/JPEG;base64,{{product?.productImage[0].picByte}}"/>
+                        </div>
+                        <div class="product-name">{{product?.productName}}</div>
+                        <div class="product-price"> ₹ {{product?.productDiscountedPrice}}</div>
+                        <div class="product-description">{{product?.productDescription}}</div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

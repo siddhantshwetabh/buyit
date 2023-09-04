@@ -1,0 +1,171 @@
+<div class="welcome-main width-100 display-flex">
+  <div class="width-60">
+  </div>
+  <div class="width-40">
+    <div>
+      <div *ngIf="screenVisible==='sing-up'" class="form-container">
+        <div class="already-a-user"> Already a user, click on <span class="sign-in-text"
+            (click)="showLoginScreen()">Sign In</span></div>
+        <form [formGroup]="newUserForm">
+          <div class="field-label">First Name:</div>
+          <mat-form-field appearance="outline" class="width-100">
+            <input matInput placeholder="Enter First Name" formControlName="firstName">
+
+            <!-- Validators Error Messages -->
+            <mat-error *ngIf="newUserForm.get('firstName')?.hasError('required')">
+              First Name is Required!
+            </mat-error>
+
+            <mat-error *ngIf="newUserForm.get('firstName')?.hasError('minlength')">
+              First Name should be atleast 3 characters long!
+            </mat-error>
+        
+            <mat-error *ngIf="newUserForm.get('firstName')?.hasError('maxlength')">
+              First Name can be atmax 10 characters long!
+            </mat-error>
+        
+            <mat-error *ngIf="newUserForm.get('firstName')?.hasError('pattern')">
+              First Name must be Valid!
+            </mat-error>
+
+          </mat-form-field>
+          <div class="field-label">Last Name:</div>
+          <mat-form-field appearance="outline" class="width-100">
+            <input matInput placeholder="Enter Last Name" formControlName="lastName">
+
+            <!-- Validators Error Messages -->
+            <mat-error *ngIf="newUserForm.get('lastName')?.hasError('required')">
+              Last Name is Required!
+            </mat-error>
+
+            <mat-error *ngIf="newUserForm.get('lastName')?.hasError('minlength')">
+              Last Name should be atleast 3 characters long!
+            </mat-error>
+        
+            <mat-error *ngIf="newUserForm.get('lastName')?.hasError('maxlength')">
+              Last Name can be atmax 10 characters long!
+            </mat-error>
+        
+            <mat-error *ngIf="newUserForm.get('lastName')?.hasError('pattern')">
+              Last Name must be Valid!
+            </mat-error>
+
+          </mat-form-field>
+          <div class="field-label">Phone Number:</div>
+          <mat-form-field appearance="outline" class="width-100">
+            <input matInput placeholder="Enter Phone Number" formControlName="phoneNumber">
+
+            <!-- Validators Error Messages -->
+            <mat-error *ngIf="newUserForm.get('phoneNumber')?.hasError('required')">
+              Phone Number is Required!
+            </mat-error>
+
+            <mat-error *ngIf="newUserForm.get('phoneNumber')?.hasError('minlength')">
+              Phone Number should be atleast 10 characters long!
+            </mat-error>
+        
+            <mat-error *ngIf="newUserForm.get('phoneNumber')?.hasError('maxlength')">
+              Phone Number can be atmax 10 characters long!
+            </mat-error>
+        
+            <mat-error *ngIf="newUserForm.get('phoneNumber')?.hasError('pattern')">
+              Phone Number must be Valid!
+            </mat-error>
+
+          </mat-form-field>
+          <div class="field-label">Email:</div>
+          <mat-form-field appearance="outline" class="width-100">
+            <input matInput placeholder="Enter Email" formControlName="email">
+
+            <!-- Validators Error Messages -->
+            <mat-error *ngIf="newUserForm.get('email')?.hasError('required')">
+              Email is Required!
+            </mat-error>
+        
+            <mat-error *ngIf="newUserForm.get('email')?.hasError('pattern')">
+              Email must be Valid!
+            </mat-error>
+
+          </mat-form-field>
+          <div class="field-label">Password:</div>
+          <mat-form-field appearance="outline" class="width-100">
+            <input matInput placeholder="Enter Password" formControlName="password" type="password">
+
+            <!-- Validators Error Messages -->
+            <mat-error *ngIf="newUserForm.get('password')?.hasError('required')">
+              Password is Required!
+            </mat-error>
+
+            <mat-error *ngIf="newUserForm.get('password')?.hasError('minlength')">
+              Password should be atleast 8 characters long!
+            </mat-error>
+        
+            <mat-error *ngIf="newUserForm.get('password')?.hasError('maxlength')">
+              Password can be atmax 18 characters long!
+            </mat-error>
+
+          </mat-form-field>
+        </form>
+        <button class="sign-up" (click)="signUpButtonClicked()">Sign Up</button>
+      </div>
+      <div *ngIf="screenVisible==='login'" class="form-container">
+        <div class="already-a-user"> Don't have an Account ? <span class="sign-in-text"
+            (click)="showsignUpScreen()">Sign Up</span></div>
+        <br>
+        <form [formGroup]="existingUserForm">
+          <div class="field-label">Email:</div>
+          <mat-form-field appearance="outline" class="width-100">
+            <input matInput placeholder="Enter Email" formControlName="email">
+            
+            <!-- Validators Error Messages -->
+            <mat-error *ngIf="newUserForm.get('email')?.hasError('required')">
+              Email is Required!
+            </mat-error>
+        
+            <mat-error *ngIf="newUserForm.get('email')?.hasError('pattern')">
+              Email must be Valid!
+            </mat-error>
+
+          </mat-form-field>
+          <div class="field-label">Password:</div>
+          <mat-form-field appearance="outline" class="width-100">
+            <input matInput placeholder="Enter Password" formControlName="password" type="password">
+
+            <!-- Validators Error Messages -->
+            <mat-error *ngIf="newUserForm.get('password')?.hasError('required')">
+              Password is Required!
+            </mat-error>
+
+            <mat-error *ngIf="newUserForm.get('password')?.hasError('minlength')">
+              Password should be atleast 8 characters long!
+            </mat-error>
+        
+            <mat-error *ngIf="newUserForm.get('password')?.hasError('maxlength')">
+              Password can be atmax 18 characters long!
+            </mat-error>
+
+          </mat-form-field>
+        </form>
+        <button class="sign-up" (click)="loginButtonClicked()">Login</button>
+        <br><br>
+        <!-- <div class="already-a-user"> Are you an Admin ? Click on  <span class="sign-in-text"
+          (click)="showAdminLogin()">Admin Login</span></div> -->
+      </div>
+      <!-- <div *ngIf="screenVisible==='admin-login'" class="form-container">
+        <div class="already-a-user"> Not Sure ? <span class="sign-in-text" (click)="showLoginScreen()"> Go Back</span>
+        </div>
+        <form [formGroup]="adminUserForm">
+          <div class="field-label">Admin Email:</div>
+          <mat-form-field appearance="outline" class="width-100">
+            <input matInput placeholder="Enter Admin Email" formControlName="adminEmail">
+          </mat-form-field>
+          <div class="field-label">Admin Password:</div>
+          <mat-form-field appearance="outline" class="width-100">
+            <input matInput placeholder="Enter Admin Password" formControlName="adminPassword">
+          </mat-form-field>
+        </form>
+        <button class="sign-up" (click)="adminLoginClicked()">Admin Login</button>
+      </div> -->
+    </div>
+  </div>
+</div>

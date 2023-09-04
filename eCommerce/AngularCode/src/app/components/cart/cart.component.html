@@ -1,0 +1,95 @@
+<div class="cart-main">
+    <div class="display-flex">
+        <div class="width-40 total">
+            <div class="address-box">
+                <form [formGroup]="AddressGroup">
+                    <div class="field-label">Enter Address Line 1 :</div>
+                    <mat-form-field appearance="outline" class="width-100">
+                        <input matInput placeholder="Enter Address Line 1" formControlName="addressLine1">
+                        <!-- Validators Error Messages -->
+                        <mat-error *ngIf="AddressGroup.get('addressLine1')?.hasError('required')">
+                            Address is Required!
+                        </mat-error>
+
+                        <mat-error *ngIf="AddressGroup.get('addressLine1')?.hasError('minlength')">
+                            Address should be atleast 8 characters long!
+                        </mat-error>
+
+                        <mat-error *ngIf="AddressGroup.get('addressLine1')?.hasError('maxlength')">
+                            Address can be at max 50 characters long!
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="field-label">Enter Address Line 2 :</div>
+                    <mat-form-field appearance="outline" class="width-100">
+                        <input matInput placeholder="Enter Address Line 2" formControlName="addressLine2">
+                        <!-- Validators Error Messages -->
+                        <mat-error *ngIf="AddressGroup.get('addressLine2')?.hasError('required')">
+                            Address is Required!
+                        </mat-error>
+
+                        <mat-error *ngIf="AddressGroup.get('addressLine2')?.hasError('minlength')">
+                            Address should be atleast 8 characters long!
+                        </mat-error>
+
+                        <mat-error *ngIf="AddressGroup.get('addressLine2')?.hasError('maxlength')">
+                            Address can be at max 50 characters long!
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="field-label">Enter Pincode :</div>
+                    <mat-form-field appearance="outline" class="width-100">
+                        <input matInput placeholder="Enter Pincode" formControlName="pinCode">
+                        <!-- Validators Error Messages -->
+                        <mat-error *ngIf="AddressGroup.get('pinCode')?.hasError('required')">
+                            Pincode is Required!
+                        </mat-error>
+
+                        <mat-error *ngIf="AddressGroup.get('pinCode')?.hasError('minlength')">
+                            Pincode should be at least 4 characters long!
+                        </mat-error>
+
+                        <mat-error *ngIf="AddressGroup.get('pinCode')?.hasError('maxlength')">
+                            Pincode can be at max 6 characters long!
+                        </mat-error>
+
+                        <mat-error *ngIf="AddressGroup.get('pinCode')?.hasError('pattern')">
+                            Pincode must be Valid!
+                        </mat-error>
+                    </mat-form-field>
+                </form>
+                <div class="display-flex">
+                    <button class="pay-now" (click)="payNow()">Proceed to Payment</button>
+                    <button class="pay-now" (click)="placeOrder()">Place your Order ( COD )
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="width-60">
+            <div *ngIf="cartItems?.length === 0" class="no-items">
+                Please add items in your cart to continue
+            </div>
+            <!-- <div *ngIf="cartItems?.length !== 0">
+                Here are your Cart items
+            </div> -->
+            <div *ngFor="let cartItem of cartItems" class="cart-item">
+                <div class="display-flex" (click)="productClicked(product)">
+                    <div class="image-container center">
+                        <!-- <img class="product-img" src="../../../assets/images/mobile-img.png" alt="" /> -->
+                        <img class="product-img" src="data:image/JPEG;base64,{{cartItem?.product?.productImage[0].picByte}}" />
+                    </div>
+                    <div>
+                        <div class="product-name">{{cartItem?.product?.productName}}</div>
+                        <div class="product-description">{{cartItem?.product?.productDescription}}</div>
+                        <div class="display-flex center-align">
+                            <div class="product-price"> ₹ {{cartItem?.product?.productDiscountedPrice}}</div>
+                            <div class="product-mrp"> ₹ {{cartItem?.product?.productActualPrice}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="remove-item">Remove item from your cart
+                    <img class="delete-icon" (click)="openConfirmationDialog(1,cartItem?.product?.productId)"
+                        src="../../../assets/images/delete.svg" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

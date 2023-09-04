@@ -1,0 +1,77 @@
+.dialog-main {
+    .blue-box {
+        width: 800px;
+        height: 92px;
+        /* UI Properties */
+        background: #8905D8 0% 0% no-repeat padding-box;
+        border-radius: 5px 5px 12px 12px;
+        opacity: 1;
+        text-align: center;
+        font: normal normal medium 22px/40px Graphik !important;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        opacity: 1;
+        font-size: 22px;
+        font-family: 'Graphik';
+        padding-top: 1.7rem;
+    }
+
+    .text-container {
+        width: 516px;
+        height: 67px;
+        /* UI Properties */
+        text-align: center;
+        font: normal normal medium 20px/40px Graphik;
+        letter-spacing: 0px;
+        color: #9B9B9B;
+        opacity: 1;
+        left: 18%;
+        position: relative;
+        margin-top: 5%;
+    
+    }
+
+    .button-container {
+        width: 276px;
+        display: flex;
+        justify-content: space-between;
+        left: 33%;
+        margin-top: 6%;
+        position: relative;
+        padding-bottom: 100px;
+
+        .confirm-button {
+            width: 118px;
+            height: 48px;
+            /* UI Properties */
+            background: #8900C5 0% 0% no-repeat padding-box;
+            border: #8900C5;
+            border-radius: 3px;
+            opacity: 1;
+            text-align: center;
+            font: normal normal medium 18px/42px Graphik;
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            text-transform: capitalize;
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .close-button {
+            width: 112px;
+            height: 48px;
+            /* UI Properties */
+            border: 1px solid #8905D8;
+            border-radius: 3px;
+            opacity: 1;
+            text-align: center;
+            font: normal normal medium 18px/42px Graphik;
+            letter-spacing: 0px;
+            color: #8905D8;
+            text-transform: capitalize;
+            opacity: 1;
+            background-color: white !important;
+            cursor: pointer;
+        }
+    }
+}

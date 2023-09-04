@@ -1,0 +1,41 @@
+server:
+  port: ${PORT:${SERVER_PORT:8086}}
+spring:
+  application:
+    name: gateway-server
+    profiles:
+      active: development
+eureka:
+  instance:
+    hostname: gateway-server
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+zuul:
+  host:
+    connect-timeout-millis: 5000000
+    socket-timeout-millis: 5000000
+  ignoredServices: '*'
+  routes:
+    sales-service:
+      path: /sales/**
+      serviceId: sales-service
+      stripPrefix: true
+    userManagement-service:
+      path: /userManagement/**
+      serviceId: userManagement-service
+      stripPrefix: true
+    creditTransfer-service:
+      path: /creditTransfer/**
+      serviceId: creditTransfer-service
+      stripPrefix: true
+    dataloader-service:
+      path: /dataloader/**
+      serviceId: dataloader-service
+      stripPrefix: true
+    auth-service:
+      path: /auth/**
+      serviceId: auth-service
+      stripPrefix: true

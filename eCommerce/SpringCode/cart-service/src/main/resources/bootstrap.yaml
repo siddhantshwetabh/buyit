@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: cart-service
+  profiles:
+    active: development
+  cloud:
+    config:
+      uri: http://localhost:8887
+  feign:
+    client:
+      config:
+        default:
+          connectTimeout: 260000000
+          readTimeout: 260000000

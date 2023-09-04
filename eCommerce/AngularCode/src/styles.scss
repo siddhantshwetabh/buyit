@@ -1,0 +1,77 @@
+@import "shortCutCss.scss";
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body {
+    margin: 0px !important;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+div {
+    font-family: 'Graphik';
+}
+
+.mat-mdc-form-field-flex {
+    padding: 10px 0px !important;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.mat-mdc-form-field-infix {
+    min-height: 0px !important;
+}
+
+.mat-mdc-menu-content {
+    padding: 0px !important;
+}
+
+.side-bar .mat-mdc-menu-panel.mat-mdc-menu-panel {
+    margin-right: 30px;
+}
+
+.side-bar .mat-mdc-text-field-wrapper {
+    height: 42px;
+    flex: auto;
+    margin-top: 15px;
+}
+
+.side-bar {
+
+    .mat-mdc-form-field,
+    .mat-mdc-floating-label {
+        font-size: var(--mdc-typography-body1-font-size, 14px) !important;
+        line-height: var(--mdc-typography-body1-line-height, 18px) !important;
+    }
+
+    .mat-mdc-form-field-subscript-wrapper, .mat-mdc-form-field-bottom-align::before {
+        display: none;
+    }
+
+    .mat-mdc-floating-label{
+        display: none !important;
+    }
+}
+
+.center-align {
+    align-items: center;
+}
+
+.mat-mdc-menu-panel.mat-mdc-menu-panel {
+    margin-right: 33px;
+}
+
+.mat-expansion-panel {
+    margin: 10px !important;
+}
+
+.mat-mdc-text-field-wrapper{
+    background-color: white;
+}

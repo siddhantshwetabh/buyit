@@ -1,0 +1,25 @@
+<div class="product-main">
+    <div class="display-flex">
+        <div class="width-50 ">
+            <!-- <img class="product-img" src="../../../assets/images/mobile-img.png" alt="" /> -->
+            <div class="img-container center">
+                <img class="product-img" src="data:image/JPEG;base64,{{product?.productImage[0].picByte}}" />
+            </div>
+        </div>
+        <div class="width-50">
+            <div class="product-name">{{product?.productName}}</div>
+            <div class="product-mrp"> ₹ {{product?.productActualPrice}}</div>
+            <div class="product-price"> ₹ {{product?.productDiscountedPrice}}</div>
+            <div class="remaining-products">Hurry, Only 5 left!</div>
+            <!-- <div class="delivery-info"> This Product can be delivered to {{userInfo.address}} by {{ date | date }}</div> -->
+            <div class="product-description">{{product?.productDescription}}</div>
+            <div class="rating-box">
+                <mat-icon style="color: white; padding-right: 7px;">star</mat-icon> 4.5
+            </div>
+            <button class="add-to-cart" (click)="addToCart()">
+                Add to Cart
+                <img class="cart-icon" src="../../../assets/images/cart-1.svg" alt="" />
+            </button>
+        </div>
+    </div>
+</div>

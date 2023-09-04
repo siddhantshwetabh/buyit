@@ -1,0 +1,65 @@
+.header-main{
+    // background-color: #21f676;
+    background-image: url('../../../assets/images/headerBG.png');
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    .kart-text{
+        color:white;
+        margin: 0px 20px;
+        font-size: 20px;
+    }
+
+    .truck-img{
+        margin: 0px 0px 0px 20px;
+    }
+}
+
+.header-img{
+    height: 65%;
+    padding: 0px 20px;
+    cursor: pointer;
+}
+
+.mat-menu-div{
+    padding: 20px;
+    // background-color: #bcf0d1;
+    background-color: #533E85;
+    color: white;
+}
+
+.log-out{
+    padding: 15px 30px;
+    color: #533E85;
+    background-color: white;
+    // background-color: rgb(48, 48, 168);
+    border-radius: 10px;
+    // color: white;
+    border: none;
+    margin-left: auto;
+    display: block;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.your-orders-button{
+    padding: 20px 0px;
+    margin: 12px;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cart-length-bubble{
+    background-color: #d30000;
+    color: white;
+    font-size: 10px;
+    padding: 2px 7px 3px 7px;
+    margin-left: -25px;
+    margin-top: -18px;
+    border-radius: 20px;
+    font-weight: 500;
+}

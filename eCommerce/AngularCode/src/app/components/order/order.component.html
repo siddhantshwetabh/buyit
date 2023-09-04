@@ -1,0 +1,54 @@
+<div class="order-main-no-orders" *ngIf="!orders">
+    No Orders Found, Please place an order
+</div>
+<div class="order-main" *ngIf="orders">
+    <table class="width-100 table-header">
+        <thead>
+            <tr>
+                <td class="first-col"> Order ID </td>
+                <td> Order Status</td>
+                <td> Payment Status</td>
+                <td> Order Amount</td>
+                <td class="fifth-col"> Address </td>
+            </tr>
+        </thead>
+    </table>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+            *ngFor="let order of orders">
+            <mat-expansion-panel-header class="width-100">
+                <mat-panel-title class="width-100">
+                    <div class="width-100">
+                        <table class="width-100">
+                            <tr class="width-100">
+                                <td class="first-col"> {{order.orderId}}</td>
+                                <td> {{order.orderStatus}}</td>
+                                <td> {{order.paymentStatus}}</td>
+                                <td> ₹ {{order.orderAmount}}</td>
+                                <td class="fifth-col"> {{order.billingAddress}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="item-header">
+            <div class="index">Sl. No.</div>
+                <div class="product-name"> Product Name</div>
+                <div class="productDiscountedPrice">Product Price</div>
+                <div class="productType">Product Price</div>
+                <div class="productDescription">Product description</div>
+            </div>
+            <div *ngFor="let item of order.item; let i = index " class="display-flex one-product" (click)="productClicked(item.product)">
+                <div class="index">{{i+1}}</div>
+                <div class="product-name"> {{item.product.productName}}</div>
+                <div class="productDiscountedPrice">{{item.product.productDiscountedPrice}}</div>
+                <div class="productType">{{item.product.productType}}</div>
+                <div class="productDescription">{{item.product.productDescription}}</div>
+            </div>
+            <div class="display-flex">
+            <button class="pay-now" *ngIf="order.paymentStatus!=='Paid'" (click)="payNow(order)">Proceed to Payment</button>
+            <button class="cancel-order" (click)="openConfirmationDialog(2,order.orderId)">Cancel Order</button>
+        </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

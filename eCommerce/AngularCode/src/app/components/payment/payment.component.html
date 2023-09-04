@@ -1,0 +1,80 @@
+<h1 mat-dialog-title> Enter Card Details </h1>
+<div mat-dialog-content>
+  <form [formGroup]="paymentForm">
+    <div class="field-label"> Enter Card Number:</div>
+    <mat-form-field appearance="outline" class="width-100">
+      <input matInput placeholder="Enter Card Number" formControlName="cardNumber">
+      <!-- Validators Error Messages -->
+      <mat-error *ngIf="paymentForm.get('cardNumber')?.hasError('required')">
+        Card Number is Required!
+      </mat-error>
+
+      <mat-error *ngIf="paymentForm.get('cardNumber')?.hasError('minlength')">
+        Card Number should be atleast 16 characters long!
+      </mat-error>
+
+      <mat-error *ngIf="paymentForm.get('cardNumber')?.hasError('maxlength')">
+        Card Number can be at max 16 characters long!
+      </mat-error>
+
+      <mat-error *ngIf="paymentForm.get('cardNumber')?.hasError('pattern')">
+        Enter Valid Card Number !
+      </mat-error>
+
+    </mat-form-field>
+    <div class="display-flex">
+      <div class="field-label"> Enter Expiry Month:</div>
+      <div class="field-label" style="margin-left: auto;padding-right: 70px;"> Enter Expiry Year:</div>
+    </div>
+    
+    <div class="display-flex space-between">
+      <mat-form-field appearance="outline" class=" dropdown-expiry">
+        <mat-select formControlName="expiryMonth">
+          <mat-option *ngFor="let number of numbers" [value]="number+1">
+            {{number+1}}
+          </mat-option>
+        </mat-select>
+        <!-- Validators Error Messages -->
+        <mat-error *ngIf="paymentForm.get('expiryMonth')?.hasError('required')">
+          Expiry Month is Required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="dropdown-expiry">
+        <mat-select formControlName="expiryYear">
+          <mat-option *ngFor="let number of years" [value]="number">
+            {{number}}
+          </mat-option>
+        </mat-select>
+        <!-- Validators Error Messages -->
+        <mat-error *ngIf="paymentForm.get('expiryYear')?.hasError('required')">
+          Expiry Year is Required!
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="field-label"> Enter CVV:</div>
+    <mat-form-field appearance="outline" class="width-100">
+      <input matInput placeholder="Enter CVV" formControlName="cvv">
+      <!-- Validators Error Messages -->
+      <mat-error *ngIf="paymentForm.get('cvv')?.hasError('required')">
+        CVV is Required!
+      </mat-error>
+
+      <mat-error *ngIf="paymentForm.get('cvv')?.hasError('minlength')">
+        CVV should be atleast 3 characters long!
+      </mat-error>
+
+      <mat-error *ngIf="paymentForm.get('cvv')?.hasError('maxlength')">
+        CVV can be at max 3 characters long!
+      </mat-error>
+
+      <mat-error *ngIf="paymentForm.get('cvv')?.hasError('pattern')">
+        Enter Valid CVV !
+      </mat-error>
+
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <!-- <button mat-button class="button-css" (click)="onNoClick()">Close</button> -->
+  <button mat-button class="button-css" (click)="payNow()">Pay Now</button>
+</div>

@@ -1,0 +1,20 @@
+<div class="header-main width-100 display-flex space-between height-7">
+    <div class="display-flex cursor-pointer" (click)="navigateToHome()">
+        <img class="center display-flex truck-img" src="../../../assets/images/delivery-truck.svg" alt="" />
+        <div class="kart-text center display-flex"> E-Commerce Kart </div>
+    </div>
+    <div *ngIf="currentPath !== '/welcome' && currentPath !== '/' " class="display-flex center">
+        <img class="header-img" (click)="cartIconClicked()" src="../../../assets/images/full-cart-new.svg" alt="" />
+        <div class="cart-length-bubble">{{cartItemsCount}}</div>
+        <img class="header-img" src="../../../assets/images/profile.svg" [matMenuTriggerFor]="menu" alt="" />
+        <mat-menu #menu="matMenu">
+            <div class="mat-menu-div">
+                <div> Name &nbsp; : &nbsp;{{userInfo?.userFirstName}} {{userInfo?.userLastName}}</div> <br>
+                <div>Contact : {{userInfo?.phNo}} </div><br>
+                <div>Email &nbsp; : {{userInfo?.emailId}} </div><br>
+                <div class="your-orders-button" (click)="goToOrders()"> Your orders </div>
+                <button class="log-out" (click)="logout()">Log Out</button>
+            </div>
+        </mat-menu>
+    </div>
+</div>
